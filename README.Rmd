@@ -1,0 +1,98 @@
+---
+title: "README"
+author: "Edson Nilton de Moura SIlva Júnior"
+date: "`r Sys.Date()`"
+output:
+  html_document: 
+    toc: yes
+    number_sections: no
+    fig_caption: yes
+    theme: flatly
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Dealing with outliers in R
+
+Outliers can be defined by valeus or ammostraal units in a vector or sample which are highlightly distinct from the others. They can be a trouble to many statistics analysis, thus outliers affect them, increasing the chances to occour Type 1 Error (reject null hypothesis when it is true). Based this, detecting and knowing outliers in a vector, such a variable, can be high usefull to data science.
+
+# Required packages
+
+To initialize the analysis, it is required the `tidyverse` package. 
+
+```{r}
+library(tidyverse)
+```
+
+# Dataset
+
+To do the analyses, it will use the `Iris dataset`, a dataset containg data about three species from *Iris* genera: *I. setosa*, *I. versicolor*, and *I. virginica*. That dataset have data about their sepal length and width, and petal length and width.
+
+```{r}
+data("iris")
+
+iris
+```
+
+# Load functions
+
+Three function was build to deal about outliers: `outlier_detect()`, to detect the the presence of upper and lower outliers; `outlier_plot()`, to plot the vector in a ggplot scatter plot, vizualizing their distribuition; and `outlier_percent()`, to calculate the percentage of upper and lower outlier in the vector. The fuctions were build and saved in .R files. check them in repository files.
+
+To load the functions, it was used the `source()` function to that three .R files, containg the functions.
+
+```{r}
+source("outlier detect.r")
+
+source("outlier plot.r")
+
+source("outlier percente.r")
+```
+
+# Detectig
+
+```{r}
+for(i in iris[1:4] %>% names()){
+  
+  str_glue("# detecting outlier to {i}") %>% message()
+  
+  outlier_detect(iris[i] %>% pull()) 
+  
+  message(" ")
+  
+}
+```
+
+# Ploting
+
+```{r}
+for(i in iris[1:4] %>% names()){
+  
+  str_glue("# plotting outlier to {i}") %>% message()
+  
+  outlier_plot(iris[i] %>% pull()) %>% print()
+  
+  message(" ")
+  
+}
+```
+
+# Percenatge
+
+```{r}
+for(i in iris[1:4] %>% names()){
+  
+  str_glue("# Percentage outlier to {i}") %>% message()
+  
+  outlier_percent(iris[i] %>% pull())
+  
+  message(" ")
+  
+}
+```
+
