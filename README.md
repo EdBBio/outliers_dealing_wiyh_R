@@ -411,38 +411,26 @@ for(i in iris[1:4] %>% names()){
 ``` r
 for(i in iris[1:4] %>% names()){
   
-  str_glue("# plotting outlier to {i}") %>% message()
+  str_glue("plotting outlier to {i}") %>% message()
   
   outlier_plot(iris[i] %>% pull()) %>% print()
-  
-  message(" ")
   
 }
 ```
 
-    ## # plotting outlier to Sepal.Length
+    ## plotting outlier to Sepal.Length
 
-    ## 
-
-    ## # plotting outlier to Sepal.Width
+    ## plotting outlier to Sepal.Width
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-    ## 
-
-    ## # plotting outlier to Petal.Length
+    ## plotting outlier to Petal.Length
 
 ![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
-    ## 
+    ## plotting outlier to Petal.Width
 
-    ## # plotting outlier to Petal.Width
-
-![](README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
-
-    ## 
-
-![](README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
 
 # Percenatge
 
