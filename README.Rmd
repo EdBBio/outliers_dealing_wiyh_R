@@ -73,11 +73,9 @@ for(i in iris[1:4] %>% names()){
 ```{r}
 for(i in iris[1:4] %>% names()){
   
-  str_glue("# plotting outlier to {i}") %>% message()
+  str_glue("plotting outlier to {i}") %>% message()
   
   outlier_plot(iris[i] %>% pull()) %>% print()
-  
-  message(" ")
   
 }
 ```
